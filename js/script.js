@@ -60,14 +60,14 @@ createApp({
 		},
         // aggiunge metodo autoplay
         autoplay() {
-            this.autoplayValue = setInterval(() => {
-				this.nextImage();
-			}, 3000);
+            this.autoplayValue = setInterval(this.nextImage, 3000);
         },
         stopAutoplay() {
 			clearInterval(this.autoplayValue);
 		},
-    }
-    
+    },
+    mounted() {
+        this.autoplayValue = setInterval(this.nextImage, 3000);
+    },
 }).mount('#app')
 
