@@ -37,22 +37,26 @@ createApp({
         }
     },
     methods: {
+        // aggiunge metodo per bottone prev
         prevImage() {
-            // SE sono sulla prima immagine allora torno all'ultima immagine
-            if(this.slidesId === 0) {
-                this.slidesId = this.slides.length - 1;
+            if(this.slideId === 0) {
+                this.slideId = this.slides.length - 1;
             } else {
-                this.slidesId--;
+                this.slideId--;
             }
         },
+        // aggiunge metodo per bottone next
         nextImage() {
-            // SE sono all'ultima immagine 4 === 5 - 1 allora riparto con currentIndex = 0
-            if(this.slidesId === this.slides.length - 1) {
-                this.slidesId = 0;
+            if(this.slideId === this.slides.length - 1) {
+                this.slideId = 0;
             } else {
-                this.slidesId++;
+                this.slideId++;
             }
-        }
+        },
+        // aggiunge metodo per cambiare immagine al click della thumb
+        changeImage(index) {
+			this.slideId = index;
+		},
     }
 }).mount('#app')
 
